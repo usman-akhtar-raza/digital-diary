@@ -8,7 +8,7 @@ public:
 	void fn()
 	{
 		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";
-		cout << "\t\t\t\t\t@@ _____________________________ @@\n";
+		cout << "\t\t\t\t\t@@ ___________ @@\n";
 		cout << "\t\t\t\t\t@@|                                           		                                  |@@\n";
 		cout << "\t\t\t\t\t@@|-------------------------------------------------------------------------------------  |@@\n";
 		cout << "\t\t\t\t\t@@|-------------------------------------------------------------------------------------  |@@\n";
@@ -24,7 +24,7 @@ public:
 		cout << "\t\t\t\t\t@@|                                                                                       |@@\n";
 		cout << "\t\t\t\t\t@@|---------------------------------------------------------------------------------------|@@\n";
 		cout << "\t\t\t\t\t@@|---------------------------------------------------------------------------------------|@@\n";
-		cout << "\t\t\t\t\t@@|_____________________________|@@\n";
+		cout << "\t\t\t\t\t@@|___________|@@\n";
 		cout << "\t\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n\n\n\t\t\t\t\t";
 		system("pause");
 		system("cls");
@@ -48,9 +48,11 @@ public:
 	void password()
 	{
 		system("CLS");
+		string password;
+				string line;
 		cout<<endl<<endl<<"Enter the Password :";
-		string password;cin>>password;
-		ifstream pass("password.txt");string line;
+		cin>>password;
+		ifstream pass("password.txt");
 		if(pass.is_open())
 		{
 			
@@ -62,14 +64,44 @@ public:
 		else{
 			cout<<endl<<"file not open"<<endl;
 		}
+		
 		int result=line.compare(password);
-		if(result==1)
+		if(result==0)
 		{
 			system("CLS");
 			cout<<endl<<endl<<"Password match";
 			system("PAUSE");
 			system("CLS");
 			int a=menu();
+		
+			
+			if(a==53)
+			{
+				string passwo;
+				system("CLS");
+				cout<<endl<<endl<<"=============>>>>     Enter your previou password:";cin>>passwo;
+				int re=0;
+				while(re==0)
+				{
+					int re=line.compare(passwo);
+					if(re==1){
+							cout<<endl<<"password not match"<<endl;
+							cout<<"Enter agian:";
+							cin>>passwo;
+					}
+					else{
+						break;
+					}
+				
+					
+					
+				}
+				pass.close();
+				ofstream change("password.txt");
+				cout<<endl<<endl<<"Enter a new password";
+				cin>>passwo;
+				change<<passwo;
+			}
 		}
 		else{
 			cout<<endl<<"password not match :"<<endl;
@@ -80,10 +112,10 @@ public:
 	{
 		
 	system("CLS");
-	system("color E7");
+	system("color E9");
 	cout<<endl<<endl<<"Bundles off option are here:"<<endl<<endl;
 	cout << ">>		Press [1] for Add a content:" << endl;
-	cout << ">>     Press [2] for Read a content:" << endl;
+	cout << ">>     		Press [2] for Read a content:" << endl;
 	cout << ">>		Press [3] for update  content:" << endl;
 	cout << ">>		Press [4] for dalete  content:" << endl;
 	cout << ">>		Press [5] for change password:" << endl;
